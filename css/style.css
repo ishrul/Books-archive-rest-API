@@ -36,7 +36,7 @@ input::placeholder {
   right: 40%;
 }
 .card {
-  height: 1000px !important;
+  height: 600px !important;
 }
 /* .image{
         height: 300px !important;
@@ -63,7 +63,7 @@ footer {
     margin-left: 45%;
   }
   .card {
-    height: 800px !important;
+    height: 700px !important;
     overflow: hidden;
   }
 }
