@@ -51,18 +51,18 @@
         bottom: 20px;
         right: 40%;
       }
-      .card{
-        height: 800px !important;
+      .card {
+        height: 1000px !important;
       }
       /* .image{
         height: 300px !important;
       } */
-      .spin{
+      .spin {
         margin-left: 50%;
       }
-      footer{
-          margin-top: 30% !important;
-        }
+      footer {
+        margin-top: 30% !important;
+      }
       @media only screen and (max-width: 600px) {
         body {
           background-color: lightblue;
@@ -75,7 +75,6 @@
           font-size: 10px;
           right: 25%;
         }
-       
       }
     </style>
   </head>
@@ -98,8 +97,9 @@
               class="input-group-text bg-danger rounded-3 text-light fs-5"
               onclick="loadBooks()"
               id="search-btn"
-              >Search</button
             >
+              Search
+            </button>
           </div>
         </div>
       </div>
@@ -107,45 +107,17 @@
     <!-- main section start -->
     <main id="books-container">
       <!-- spinner -->
-      <div  class="text-center">
-        <div
-          id="spinner"
-          class="spinner-border text-danger spin"
-          role="status"
-        >
+      <div class="text-center">
+        <div id="spinner" class="spinner-border text-info spin" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      <div id="error-msg">
-        
-      </div>
+      <div id="error-msg"></div>
       <!-- div for total result -->
       <div id="total-result"></div>
       <!-- div for Books -->
-      <div class="container" id="books-display">
-        <div id="Books-sec" class="row g-4">
-          
-          </div>
-          
-          <!-- <div class="col-3">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-              </div>
-            </div> -->
 
-          </div>
-        </div>
-      </div>
+      <div id="Books-sec" class="row g-4"></div>
     </main>
     <!-- footer section start -->
     <footer>

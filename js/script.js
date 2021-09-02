@@ -1,41 +1,48 @@
 document.getElementById("spinner").style.display = "none";
-/* const url = `http://openlibrary.org/search.json?q=javascript`;
-fetch(url)
-  .then((res) => res.json())
-  .then((data) => displayBooks(data)); */
+const BooksSec = document.getElementById("Books-sec");
+const errorDiv = document.getElementById("error-msg");
+
 // call the search button
 loadBooks = () => {
   let searchText = document.getElementById("Books-input");
   let searchField = searchText.value;
+  // clear dom
+  BooksSec.innerHTML = "";
 
-  // document.getElementById("books-display").textContent = "";
-
-  const url = `https://openlibrary.org/search.json?q=${searchField}`;
   if (searchField === "") {
     // set error message for empty string
     document.getElementById("total-result").textContent = "";
-    document.getElementById("books-display").textContent = "";
-    document.getElementById("error-msg").innerHTML = `
+    document.getElementById("Books-sec").textContent = "";
+    errorDiv.innerHTML = `
     <h3 class="text-danger text-center">Please enter a valid books name!!!</h3>
     `;
-  } else if (searchField.length > 0) {
-    // turn of spinner
-    document.getElementById("spinner").style.display = "block";
-    // fatch the url
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => displayBooks(data));
+    return;
   }
-
+  // turn on spinner
+  document.getElementById("spinner").style.display = "block";
+  // fatch the url
+  const url = `https://openlibrary.org/search.json?q=${searchField}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.numFound === 0) {
+        document.getElementById("error-msg").innerHTML = `
+        <h3 class="text-danger text-center">Invalid book name. Please enter a valid book name!!!</h3>
+    `;
+      } else {
+        errorDiv.innerHTML = "";
+      }
+      displayBooks(data);
+    });
+  // clear input field
   searchText.value = "";
 };
 
 // display all books
 displayBooks = (data) => {
-  const BooksSec = document.getElementById("Books-sec");
-  BooksSec.textContent = "";
+  console.log(data);
   const totalResult = document.getElementById("total-result");
-  totalResult.textContent = "";
+  // totalResult.textContent = "";
   totalResult.innerHTML = `
   <h4 class="text-center my-5 text-primary">${data.numFound} Result Found </h4>
   `;
@@ -43,20 +50,12 @@ displayBooks = (data) => {
   // turn off spinner
   document.getElementById("spinner").style.display = "none";
 
-  if (data.numFound === 0) {
-    // set error message for empty string
-    document.getElementById("total-result").textContent = "";
-    document.getElementById("books-display").textContent = "";
-    document.getElementById("error-msg").innerHTML = `
-    <h3 class="text-danger text-center">Invalid book name. Please enter a valid book name!!!</h3>
-    `;
-  } else if (data.numFound > 0) {
-    const documents = data.docs;
-
-    documents.forEach((doc) => {
-      const div = document.createElement("div");
-      div.classList.add("col-4");
-      div.innerHTML = `
+  const documents = data.docs;
+  const BooksSec = document.getElementById("Books-sec");
+  documents.forEach((doc) => {
+    const divOne = document.createElement("div");
+    divOne.classList.add("col-3");
+    divOne.innerHTML = `
       <div class="card">
                 <img src=" https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg" class="card-img-top image" alt="..." />
                 <div class="card-body">
@@ -72,8 +71,7 @@ displayBooks = (data) => {
                   </p>
                 </div>
       `;
-      console.log(BooksSec);
-      BooksSec.appendChild(div);
-    });
-  }
+    console.log(divOne);
+    BooksSec.appendChild(divOne);
+  });
 };
