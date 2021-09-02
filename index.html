@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books</title>
+    <!-- bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- venilla css -->
+    <style>
+      body {
+        background-color: black;
+      }
+      .width {
+        width: 30rem !important;
+        border-radius: 10px;
+      }
+      input {
+        background: transparent !important;
+        color: white !important;
+        background-color: white;
+        font-style: italic;
+      }
+      input::placeholder {
+        color: white !important;
+      }
+      #wrong-name,
+      #empty {
+        color: red;
+      }
+      .Books-div {
+        color: white;
+        text-align: center;
+        margin-top: 30px;
+      }
+      .Books-div h2 {
+        font-size: 50px;
+      }
+      .Books-div h3 {
+        font-size: 45px;
+      }
+      .copyright {
+        text-align: center;
+        /* position:relative; */
+        bottom: 20px;
+        right: 40%;
+      }
+      .card{
+        height: 800px !important;
+      }
+      /* .image{
+        height: 300px !important;
+      } */
+      .spin{
+        margin-left: 50%;
+      }
+      footer{
+          margin-top: 30% !important;
+        }
+      @media only screen and (max-width: 600px) {
+        body {
+          background-color: lightblue;
+        }
+        #Books-input {
+          width: 200px !important;
+          font-size: 20px;
+        }
+        .copyright {
+          font-size: 10px;
+          right: 25%;
+        }
+       
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header start -->
+    <header>
+      <div class="d-flex justify-content-center">
+        <div>
+          <div class="input-group m-5 ms-0">
+            <input
+              id="Books-input"
+              type="text"
+              class="form-control width"
+              placeholder="Enter your Book name..."
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+              title="Search your favourite Books ..."
+            />
+            <button
+              class="input-group-text bg-danger rounded-3 text-light fs-5"
+              onclick="loadBooks()"
+              id="search-btn"
+              >Search</button
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- main section start -->
+    <main id="books-container">
+      <!-- spinner -->
+      <div  class="text-center">
+        <div
+          id="spinner"
+          class="spinner-border text-danger spin"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div id="error-msg">
+        
+      </div>
+      <!-- div for total result -->
+      <div id="total-result"></div>
+      <!-- div for Books -->
+      <div class="container" id="books-display">
+        <div id="Books-sec" class="row g-4">
+          
+          </div>
+          
+          <!-- <div class="col-3">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- footer section start -->
+    <footer>
+      <div class="text-light">
+        <p class="copyright">
+          COPYRIGHT © 2021 | ALL RIGHTS RESERVED BY <br />
+          <a
+            class="text-light"
+            target="_blank"
+            href="https://www.facebook.com/cocking.is"
+            >MOHAMMAD ISHRUL KAYES</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <!-- javascript links -->
+
+    <!-- bootstrap js link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- external js link -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
