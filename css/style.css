@@ -1,0 +1,69 @@
+body {
+  background-color: black;
+}
+.width {
+  width: 30rem !important;
+  border-radius: 10px;
+}
+input {
+  background: transparent !important;
+  color: white !important;
+  background-color: white;
+  font-style: italic;
+}
+input::placeholder {
+  color: white !important;
+}
+#wrong-name,
+#empty {
+  color: red;
+}
+.Books-div {
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+}
+.Books-div h2 {
+  font-size: 50px;
+}
+.Books-div h3 {
+  font-size: 45px;
+}
+.copyright {
+  text-align: center;
+  /* position:relative; */
+  bottom: 20px;
+  right: 40%;
+}
+.card {
+  height: 1000px !important;
+}
+/* .image{
+        height: 300px !important;
+      } */
+.spin {
+  margin-left: 50%;
+}
+footer {
+  margin-top: 30% !important;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: rgb(0, 14, 19);
+  }
+  #Books-input {
+    width: 200px !important;
+    font-size: 20px;
+  }
+  .copyright {
+    font-size: 10px;
+    right: 25%;
+  }
+  .spin {
+    margin-left: 45%;
+  }
+  .card {
+    height: 800px !important;
+    overflow: hidden;
+  }
+}

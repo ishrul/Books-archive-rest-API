@@ -54,7 +54,7 @@ displayBooks = (data) => {
   const BooksSec = document.getElementById("Books-sec");
   documents.forEach((doc) => {
     const divOne = document.createElement("div");
-    divOne.classList.add("col-3");
+    divOne.classList.add("col-lg-3");
     divOne.innerHTML = `
       <div class="card">
                 <img src=" https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg" class="card-img-top image" alt="..." />
@@ -62,7 +62,7 @@ displayBooks = (data) => {
                   <h3 class="card-title">${doc.title}</h3>
                   <h6>Writer: ( ${doc.author_name} )</h6>
                   <p class="card-text">
-                    Publisher: ${doc.publisher}
+                    Publisher: ${doc.publisher[0]}
                   </p>
                   <p class="card-text">
                     <small class="text-muted">
